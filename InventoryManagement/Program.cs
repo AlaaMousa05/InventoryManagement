@@ -3,30 +3,26 @@ using InventoryManagement.Services;
 
 Inventory inventory = new();
 
-Console.Write("Enter product name: ");
-string name = Console.ReadLine()!;
+inventory.AddProduct(
+    new Product("Laptop", 1000, 5));
 
-Console.Write("Enter product price: ");
-decimal price = decimal.Parse(Console.ReadLine()!);
+inventory.AddProduct(
+    new Product("Mouse", 50, 10));
 
-Console.Write("Enter product quantity: ");
-int quantity = int.Parse(Console.ReadLine()!);
+Console.Write("Enter product name to search: ");
 
-Product product = new(name, price, quantity);
+string productName = Console.ReadLine()!;
 
-inventory.AddProduct(product);
+Product? product = inventory.FindProduct(productName);
 
-Console.WriteLine($"Product {product.Name} added successfully!");
-
-
-Console.WriteLine("\nInventory Products:");
-
-foreach (Product item in inventory.GetAllProducts())
+if (product is not null)
 {
     Console.WriteLine(
-        $"Name: {item.Name} | Price: {item.Price} | Quantity: {item.Quantity}");
+        $"Name: {product.Name}, Price: {product.Price}, Quantity: {product.Quantity}");
 }
-
-
+else
+{
+    Console.WriteLine("Product not found.");
+}
 
 Console.ReadKey();

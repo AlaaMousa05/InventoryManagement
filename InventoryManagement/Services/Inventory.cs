@@ -17,5 +17,17 @@ namespace InventoryManagement.Services
         {
             return _products;
         }
+
+
+
+        public Product? FindProduct(string name)
+        {
+            return _products.FirstOrDefault(
+                p => p.Name.Equals(
+                    name,
+                    StringComparison.OrdinalIgnoreCase));
+        }
+
+
     }
 }
