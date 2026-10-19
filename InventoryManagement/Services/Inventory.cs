@@ -11,5 +11,11 @@ namespace InventoryManagement.Services
         {
             _products.Add(product);
         }
+
+
+        public List<Product> GetAllProducts()
+        {
+            return _products;
+        }
     }
 }
