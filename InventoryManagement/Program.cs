@@ -9,20 +9,39 @@ inventory.AddProduct(
 inventory.AddProduct(
     new Product("Mouse", 50, 10));
 
-Console.Write("Enter product name to search: ");
+Console.Write("Enter product to edit: ");
+string currentName = Console.ReadLine()!;
 
-string productName = Console.ReadLine()!;
+Console.Write("Enter new name: ");
+string newName = Console.ReadLine()!;
 
-Product? product = inventory.FindProduct(productName);
+Console.Write("Enter new price: ");
+decimal newPrice = decimal.Parse(Console.ReadLine()!);
 
-if (product is not null)
+Console.Write("Enter new quantity: ");
+int newQuantity = int.Parse(Console.ReadLine()!);
+
+bool updated = inventory.EditProduct(
+    currentName,
+    newName,
+    newPrice,
+    newQuantity);
+
+if (updated)
 {
-    Console.WriteLine(
-        $"Name: {product.Name}, Price: {product.Price}, Quantity: {product.Quantity}");
+    Console.WriteLine("Product updated successfully!");
 }
 else
 {
     Console.WriteLine("Product not found.");
+}
+
+Console.WriteLine("\nCurrent Products:");
+
+foreach (Product item in inventory.GetAllProducts())
+{
+    Console.WriteLine(
+        $"Name: {item.Name}, Price: {item.Price}, Quantity: {item.Quantity}");
 }
 
 Console.ReadKey();

@@ -16,6 +16,11 @@ public class Product
     }
 
 
-
+    public void Update(string name, decimal price, int quantity)
+    {
+        Name = name;
+        Price = price;
+        Quantity = quantity;
+    }
 
 }
