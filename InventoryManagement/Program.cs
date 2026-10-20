@@ -9,27 +9,15 @@ inventory.AddProduct(
 inventory.AddProduct(
     new Product("Mouse", 50, 10));
 
-Console.Write("Enter product to edit: ");
-string currentName = Console.ReadLine()!;
+Console.Write("Enter product name to delete: ");
 
-Console.Write("Enter new name: ");
-string newName = Console.ReadLine()!;
+string productName = Console.ReadLine()!;
 
-Console.Write("Enter new price: ");
-decimal newPrice = decimal.Parse(Console.ReadLine()!);
+bool deleted = inventory.DeleteProduct(productName);
 
-Console.Write("Enter new quantity: ");
-int newQuantity = int.Parse(Console.ReadLine()!);
-
-bool updated = inventory.EditProduct(
-    currentName,
-    newName,
-    newPrice,
-    newQuantity);
-
-if (updated)
+if (deleted)
 {
-    Console.WriteLine("Product updated successfully!");
+    Console.WriteLine("Product deleted successfully!");
 }
 else
 {
