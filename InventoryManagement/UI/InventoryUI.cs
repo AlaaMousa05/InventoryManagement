@@ -35,4 +35,9 @@ public static class InventoryUI
 	{
 		Console.WriteLine(message);
 	}
+
+    public static void ShowPrompt(string message)
+    {
+        Console.Write(message);
+    }
 }

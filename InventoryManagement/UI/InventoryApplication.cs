@@ -58,7 +58,7 @@ public class InventoryApplication
 
     private void AddProduct()
     {
-        Console.Write("Product Name: ");
+        InventoryUI.ShowPrompt("Product Name: ");
         string name = Console.ReadLine()!;
 
         decimal price = ReadPrice();
@@ -93,7 +93,7 @@ public class InventoryApplication
 
     private void SearchProduct()
     {
-        Console.Write("Product Name: ");
+        InventoryUI.ShowPrompt("Product Name: ");
         string name = Console.ReadLine()!;
 
         Product? product =
@@ -112,10 +112,10 @@ public class InventoryApplication
 
     private void EditProduct()
     {
-        Console.Write("Current Product Name: ");
+        InventoryUI.ShowPrompt("Current Product Name: ");
         string currentName = Console.ReadLine()!;
 
-        Console.Write("New Product Name: ");
+        InventoryUI.ShowPrompt("New Product Name: ");
         string newName = Console.ReadLine()!;
 
         decimal newPrice = ReadPrice();
@@ -136,7 +136,7 @@ public class InventoryApplication
 
     private void DeleteProduct()
     {
-        Console.Write("Product Name: ");
+        InventoryUI.ShowPrompt("Product Name: ");
         string name = Console.ReadLine()!;
 
         bool deleted =
@@ -159,7 +159,8 @@ public class InventoryApplication
                 return choice;
             }
 
-            Console.Write("Invalid choice. Try again: ");
+            InventoryUI.ShowPrompt(
+                "Invalid choice. Try again: ");
         }
     }
 
@@ -167,7 +168,7 @@ public class InventoryApplication
     {
         while (true)
         {
-            Console.Write("Product Price: ");
+            InventoryUI.ShowPrompt("Product Price: ");
 
             if (decimal.TryParse(
                 Console.ReadLine(),
@@ -176,7 +177,7 @@ public class InventoryApplication
                 return price;
             }
 
-            Console.WriteLine(
+            InventoryUI.ShowMessage(
                 "Invalid price. Please try again.");
         }
     }
@@ -185,7 +186,7 @@ public class InventoryApplication
     {
         while (true)
         {
-            Console.Write("Product Quantity: ");
+            InventoryUI.ShowPrompt("Product Quantity: ");
 
             if (int.TryParse(
                 Console.ReadLine(),
@@ -194,7 +195,7 @@ public class InventoryApplication
                 return quantity;
             }
 
-            Console.WriteLine(
+            InventoryUI.ShowMessage(
                 "Invalid quantity. Please try again.");
         }
     }
