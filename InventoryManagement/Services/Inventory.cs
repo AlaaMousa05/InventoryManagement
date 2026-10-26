@@ -9,6 +9,7 @@ namespace InventoryManagement.Services
         public void AddProduct(Product product)
         {
             _products.Add(product);
+            // new commit
         }
 
         public List<Product> GetAllProducts()
